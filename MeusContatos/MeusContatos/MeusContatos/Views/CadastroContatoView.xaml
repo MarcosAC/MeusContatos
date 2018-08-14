@@ -11,7 +11,7 @@
 
             <Button Text="Adicionar Contato" 
                     TextColor="White"
-                    BackgroundColor="#1E90FF"/>
+                    BackgroundColor="#1E90FF" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
