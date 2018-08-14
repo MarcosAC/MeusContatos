@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MeusContatos.Views.ListaDeContatosView"
+             Title="Contatos">
+    <ContentPage.Content>
+        <RelativeLayout>
+            <StackLayout RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
+                         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
+
+                <ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <Button Text="+"
+                    TextColor="White"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    BackgroundColor="#1E90FF"
+                    BorderRadius="100"
+                    HeightRequest="60"
+                    WidthRequest="60"
+                    Clicked="IrParaCadastroContato"
+                    RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-80}"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-80}" />
+
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
