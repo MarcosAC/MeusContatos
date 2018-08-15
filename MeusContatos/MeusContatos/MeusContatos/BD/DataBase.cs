@@ -6,7 +6,7 @@ namespace MeusContatos.BD
 {
     public class DataBase
     {
-        private SQLiteConnection _conexao;
+        private static SQLiteConnection _conexao;
 
         public DataBase()
         {
@@ -21,6 +21,11 @@ namespace MeusContatos.BD
 
             _conexao.CreateTable<Contato>();
             _conexao.CreateTable<Telefone>();
+        }
+
+        public static SQLiteConnection Conexao()
+        {
+            return _conexao;
         }
     }
 }
