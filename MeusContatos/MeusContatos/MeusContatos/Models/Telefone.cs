@@ -9,5 +9,6 @@ namespace MeusContatos.Models
         public int IdTelefone { get; set; }
         public string Celular { get; set; }
         public string TefoneFixo { get; set; }
+        public Contato Contato { get; set; }
     }
 }
