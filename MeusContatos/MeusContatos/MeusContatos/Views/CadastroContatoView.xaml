@@ -5,9 +5,14 @@
              Title="Adicionar Contato">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Entry Placeholder="Nome" />
-            <Entry Placeholder="Celular" />
-            <Entry Placeholder="Telefone" />
+            <Entry Text="{Binding NomeContato}" 
+                   Placeholder="Nome" />
+
+            <Entry Text="{Binding Celular}"
+                   Placeholder="Celular" />
+            
+            <Entry Text="{Binding TelefoneFixo}"
+                   Placeholder="Telefone" />
 
             <Button Text="Adicionar Contato" 
                     TextColor="White"
