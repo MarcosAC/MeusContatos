@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("MeusContatos.Views.CadastroContatoView.xaml", "Views/CadastroContatoView.xaml", typeof(global::MeusContatos.Views.CadastroContatoViews))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("MeusContatos.Views.CadastroContatoView.xaml", "Views/CadastroContatoView.xaml", typeof(global::MeusContatos.Views.CadastroContatoView))]
 
 namespace MeusContatos.Views {
     
     
     [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\CadastroContatoView.xaml")]
-    public partial class CadastroContatoViews : global::Xamarin.Forms.ContentPage {
+    public partial class CadastroContatoView : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(CadastroContatoViews));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(CadastroContatoView));
         }
     }
 }

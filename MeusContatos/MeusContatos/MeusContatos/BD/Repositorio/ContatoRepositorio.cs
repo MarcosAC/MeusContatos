@@ -5,41 +5,41 @@ namespace MeusContatos.BD.Repositorio
 {
     public class ContatoRepositorio : IContatoRepositorio
     {
-        DataBaseService _dataBaseService;
+        DataBase _dataBase;
 
         public ContatoRepositorio()
         {
-            _dataBaseService = new DataBaseService();
+            _dataBase = new DataBase();
         }
 
         public void AdicionarContato(Contato contato)
         {
-            _dataBaseService.AdicionarContato(contato);
+            _dataBase.AdicionarContato(contato);
         }
 
         public void DeletarContato(int contatoId)
         {
-            _dataBaseService.DeletarContato(contatoId);
+            _dataBase.DeletarContato(contatoId);
         }
 
         public void DeletarTodosContatos()
         {
-            _dataBaseService.DeletarTodosContatos();
+            _dataBase.DeletarTodosContatos();
         }
 
         public void EditarContato(Contato contato)
         {
-            _dataBaseService.EditarContato(contato);
+            _dataBase.EditarContato(contato);
         }
 
         public Contato ObterContato(int contatoId)
         {
-            return _dataBaseService.ObterContato(contatoId);
+            return _dataBase.ObterContato(contatoId);
         }
 
-        public List<Contato> ObterTodosContat()
+        public List<Contato> ObterTodosContatos()
         {
-            return _dataBaseService.ObterTodosContatos();
+            return _dataBase.ObterTodosContatos();
         }
     }
 }

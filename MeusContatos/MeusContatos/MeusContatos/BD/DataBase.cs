@@ -1,5 +1,7 @@
 ﻿using MeusContatos.Models;
 using SQLite;
+using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace MeusContatos.BD
@@ -20,12 +22,36 @@ namespace MeusContatos.BD
             _conexao = new SQLiteConnection(stringConexao);
 
             _conexao.CreateTable<Contato>();
-            _conexao.CreateTable<Telefone>();
         }
 
-        public static SQLiteConnection Conexao()
+        public void AdicionarContato(Contato contato)
         {
-            return _conexao;
+            _conexao.Insert(contato);
+        }
+
+        public Contato ObterContato(int id)
+        {
+            return _conexao.Table<Contato>().FirstOrDefault(c => c.IdContato == id);
+        }
+
+        public List<Contato> ObterTodosContatos()
+        {
+            return (from dadosContato in _conexao.Table<Contato>() select dadosContato).ToList();
+        }
+
+        public void EditarContato(Contato contato)
+        {
+            _conexao.Update(contato);
+        }
+
+        public void DeletarContato(int id)
+        {
+            _conexao.Delete<Contato>(id);
+        }
+
+        public void DeletarTodosContatos()
+        {
+            _conexao.DeleteAll<Contato>();
         }
     }
 }

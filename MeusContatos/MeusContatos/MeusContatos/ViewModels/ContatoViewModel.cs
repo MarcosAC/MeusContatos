@@ -1,14 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MeusContatos.BD.Repositorio;
+using MeusContatos.Models;
+using MeusContatos.Views;
+using System;
+using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace MeusContatos.ViewModels
 {
     public class ContatoViewModel : BaseViewModel
     {
+        private readonly IContatoRepositorio _contatoRepositorio;
+        
+        public Command AdicionarContatoCommand { get; }
+
         public ContatoViewModel()
         {
-
+            _contatoRepositorio = new ContatoRepositorio();
+            AdicionarContatoCommand = new Command(async () => await ExecuteAdicionarContatoCommand());
         }
 
         private string _NomeContato;
@@ -17,8 +25,7 @@ namespace MeusContatos.ViewModels
             get { return _NomeContato; }
             set
             {
-                _NomeContato = value;
-                OnPropertyChanged();
+                SetProperty(ref _NomeContato, value);                
             }
         }
 
@@ -28,8 +35,7 @@ namespace MeusContatos.ViewModels
             get { return _Celular; }
             set
             {
-                _Celular = value;
-                OnPropertyChanged();
+                SetProperty(ref _Celular, value);                
             }
         }
 
@@ -39,8 +45,42 @@ namespace MeusContatos.ViewModels
             get { return _TelefoneFixo; }
             set
             {
-                _TelefoneFixo = value;
-                OnPropertyChanged();
+                SetProperty(ref _TelefoneFixo, value);                
+            }
+        }
+
+        private async Task ExecuteAdicionarContatoCommand()
+        {
+            try
+            {
+                var contato = new Contato
+                {
+                    NomeContato = NomeContato,
+                    Celular = Celular,
+                    TelefoneFixo = TelefoneFixo
+                };
+
+                bool contatoAceito = await Application.Current.MainPage.DisplayAlert("Adicionar Contato", "Deseja adicionar Contato?", "Sim", "Não");
+
+                if (contatoAceito)
+                {
+                    try
+                    {
+                        _contatoRepositorio.AdicionarContato(contato);                        
+                        await Application.Current.MainPage.DisplayAlert("", "Contato adicionado com sucesso.", "Ok");                        
+                    }
+                    catch (Exception Erro)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Adicionar Contato", "Erro ao adicionar Contato" + Erro, "Sim", "Não");
+                    }
+
+                    await PushAsync(new ListaDeContatosView());
+                }
+            }
+            catch (Exception Erro)
+            {
+                await Application.Current.MainPage.DisplayAlert("Adicionar Contato", "Erro ao adicionar Contato" + Erro, "Sim", "Não");
+                await PushAsync(new ListaDeContatosView());
             }
         }
     }

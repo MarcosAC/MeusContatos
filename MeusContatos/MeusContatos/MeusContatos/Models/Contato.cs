@@ -8,6 +8,7 @@ namespace MeusContatos.Models
         [PrimaryKey, AutoIncrement]
         public int IdContato { get; set; }
         public string NomeContato { get; set; }
-        public Telefone Telefone { get; set; }
+        public string Celular { get; set; }
+        public string TelefoneFixo { get; set; }
     }
 }

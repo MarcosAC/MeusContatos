@@ -1,6 +1,9 @@
 ﻿using MeusContatos.BD;
+using MeusContatos.Droid.BD;
 using System.IO;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(ConexaoBancoDados))]
 namespace MeusContatos.Droid.BD
 {
     public class ConexaoBancoDados : IConexaoBancoDados

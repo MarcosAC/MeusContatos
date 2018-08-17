@@ -5,7 +5,7 @@ namespace MeusContatos.BD.Repositorio
 {
     public interface IContatoRepositorio
     {
-        List<Contato> ObterTodosContat();
+        List<Contato> ObterTodosContatos();
 
         Contato ObterContato(int contatoId);
 
