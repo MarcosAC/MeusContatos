@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeusContatos.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,8 @@ namespace MeusContatos.Views
 		public ListaDeContatosView ()
 		{
 			InitializeComponent ();
-		}
 
-        private void IrParaCadastroContato(object sender, EventArgs e)
-        {
-            Navigation.PushAsync(new CadastroContatoViews());
+            BindingContext = new ListaDeConatosViewModel();
         }
     }
 }
