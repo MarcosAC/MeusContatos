@@ -13,5 +13,10 @@ namespace MeusContatos.Views
 
             BindingContext = new ListaDeContatosViewModel();
         }
+
+        private void OnItemSelectedContato(object sender, SelectedItemChangedEventArgs e)
+        {
+            LstDeContatos.SelectedItem = null;
+        }
     }
 }

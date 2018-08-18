@@ -3,16 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MeusContatos.Views.ListaDeContatosView"
              Title="Contatos">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="styleTelefonesContato">
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <RelativeLayout>
             <StackLayout RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
 
-                <ListView ItemsSource="{Binding listaDeContatos}">
+                <ListView x:Name="LstDeContatos" 
+                          ItemsSource="{Binding listaDeContatos}" 
+                          HasUnevenRows="True"
+                          ItemSelected="OnItemSelectedContato">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding NomeContato}"                                      
-                                      Detail="{Binding Celular}" />
+                            <ViewCell>
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding NomeContato}"
+                                           FontSize="Medium" 
+                                           FontAttributes="Bold" />
+                                    
+                                    <Label Text="{Binding Celular}" Style="{StaticResource styleTelefonesContato}" />
+                                    <Label Text="{Binding TelefoneFixo}" Style="{StaticResource styleTelefonesContato}" />
+                                </StackLayout>
+                            </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
