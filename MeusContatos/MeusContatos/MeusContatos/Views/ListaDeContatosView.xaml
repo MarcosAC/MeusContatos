@@ -8,10 +8,11 @@
             <StackLayout RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
 
-                <ListView>
+                <ListView ItemsSource="{Binding listaDeContatos}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-
+                            <TextCell Text="{Binding NomeContato}"                                      
+                                      Detail="{Binding Celular}" />
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
