@@ -17,6 +17,8 @@
             <StackLayout RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"
                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
 
+                <SearchBar Margin="0,10,0,0" />
+                
                 <ListView x:Name="LstDeContatos" 
                           ItemsSource="{Binding listaDeContatos}" 
                           HasUnevenRows="True"
