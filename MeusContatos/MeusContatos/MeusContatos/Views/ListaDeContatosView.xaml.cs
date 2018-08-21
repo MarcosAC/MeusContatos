@@ -6,17 +6,26 @@ namespace MeusContatos.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ListaDeContatosView : ContentPage
-	{
-		public ListaDeContatosView()
+	{   
+        public ListaDeContatosView()
 		{
-			InitializeComponent();
+            InitializeComponent();
 
-            BindingContext = new ListaDeContatosViewModel();
+            ViewModel = new ListaDeContatosViewModel();
         }
 
-        private void OnItemSelectedContato(object sender, SelectedItemChangedEventArgs e)
+        public ListaDeContatosViewModel ViewModel
         {
-            LstDeContatos.SelectedItem = null;
+            get { return BindingContext as ListaDeContatosViewModel; }
+            set { BindingContext = value; }
+        }
+
+        private void OnItemSelect(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+                ViewModel.SelecionarContatoCommand.Execute(e.SelectedItem);
+
+            listViewContatos.SelectedItem = null;
         }
     }
 }

@@ -2,6 +2,7 @@
 using MeusContatos.Models;
 using MeusContatos.Views;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -10,12 +11,13 @@ namespace MeusContatos.ViewModels
     public class ContatoViewModel : BaseViewModel
     {
         private readonly IContatoRepositorio _contatoRepositorio;
-        
+
         public Command AdicionarContatoCommand { get; }
 
         public ContatoViewModel()
         {
             _contatoRepositorio = new ContatoRepositorio();
+            
             AdicionarContatoCommand = new Command(async () => await ExecuteAdicionarContatoCommand());
         }
 
@@ -46,6 +48,16 @@ namespace MeusContatos.ViewModels
             set
             {
                 SetProperty(ref _TelefoneFixo, value);                
+            }
+        }
+
+        List<Contato> _ListaDeContatos;
+        public List<Contato> ListaDeContatos
+        {
+            get { return _ListaDeContatos; }
+            set
+            {
+                SetProperty(ref _ListaDeContatos, value);
             }
         }
 

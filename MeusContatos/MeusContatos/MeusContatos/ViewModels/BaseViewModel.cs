@@ -15,22 +15,19 @@ namespace MeusContatos.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+        protected void SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(storage, value))
-            {
-                return false;
-            }
+                return;
 
             storage = value;
-            OnPropertyChanged(propertyName);
-            return true;
+            OnPropertyChanged(propertyName);            
         }
 
-        // Método de navegação entre páginas.
-        public async Task PushAsync(Page page, bool animated = true)
+        //Método de navegação entre páginas.
+        public async Task PushAsync(Page page)
         {
-            await App.Current.MainPage.Navigation.PushAsync(page, animated);
+            await Application.Current.MainPage.Navigation.PushAsync(page);
         }
     }
 }
