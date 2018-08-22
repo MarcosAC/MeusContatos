@@ -18,11 +18,11 @@
                          RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1}">
 
                 <SearchBar Margin="0,10,0,0" />
-
+                
                 <ListView x:Name="listViewContatos" 
                           ItemsSource="{Binding listaDeContatos}"
-                          SelectedItem="{Binding ContatoSelecionado}"
                           ItemSelected="OnItemSelect"
+                          SelectedItem="{Binding ContatoSelecionado, Mode=TwoWay}"                          
                           HasUnevenRows="True">                          
                     <ListView.ItemTemplate>
                         <DataTemplate>

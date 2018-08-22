@@ -5,7 +5,7 @@
              Title="Editar/Deletar Contatos">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Entry Text="{Binding NomeContato}" 
+            <Entry Text="{Binding NomeContato}"                   
                    Placeholder="Nome" />
 
             <Entry Text="{Binding Celular}"

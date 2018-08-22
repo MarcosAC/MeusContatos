@@ -1,7 +1,6 @@
 ﻿using MeusContatos.BD.Repositorio;
 using MeusContatos.Models;
 using MeusContatos.Views;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -11,7 +10,6 @@ namespace MeusContatos.ViewModels
     public class ListaDeContatosViewModel : BaseViewModel
     {
         private readonly IContatoRepositorio _contatoRepositorio;
-        private ContatoViewModel _contatoSelecionado;
         
         public Command IrParaCadastroContatoCommand { get; }
         public Command SelecionarContatoCommand { get; }
@@ -28,17 +26,13 @@ namespace MeusContatos.ViewModels
             SelecionarContatoCommand = new Command<Contato>(async c => await ExecuteSelecionarContatoCommand(c));
         }
 
-        private Task ExecuteSelecionarContatoCommand(object idContato)
+        private Contato _ContatoSelecionado;
+        public Contato ContatoSelecionado
         {
-            throw new NotImplementedException();
-        }
-
-        public ContatoViewModel ContatoSelecionado
-        {
-            get { return _contatoSelecionado; }
+            get { return _ContatoSelecionado; }
             set
             {
-                SetProperty(ref _contatoSelecionado, value);
+                SetProperty(ref _ContatoSelecionado, value);
             }
         }
 
@@ -57,11 +51,7 @@ namespace MeusContatos.ViewModels
             if (contaSelecionado == null)
                 return;
 
-            var dadosContato = _contatoRepositorio.ObterContato(contaSelecionado.IdContato);
-
-            ContatoSelecionado = null;
-
-            await PushAsync(new EditarContatoView(dadosContato));
+            await PushAsync(new EditarContatoView(contaSelecionado));
         }
     }
 }
