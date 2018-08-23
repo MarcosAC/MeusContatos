@@ -22,7 +22,7 @@
             <Button Text="Deletar Contato" 
                     TextColor="White"
                     BackgroundColor="#1E90FF" 
-                    Command="{Binding AdicionarContatoCommand}"/>
+                    Command="{Binding DeletarContatoCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

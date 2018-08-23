@@ -14,6 +14,7 @@ namespace MeusContatos.ViewModels
         public Contato _dadosContato;
 
         public Command EditarContatoCommand { get; }
+        public Command DeletarContatoCommand { get; }
 
         public EditarContatoViewModel(Contato contatoSelecionado)
         {
@@ -22,6 +23,7 @@ namespace MeusContatos.ViewModels
             _dadosContato = contatoSelecionado;
 
             EditarContatoCommand = new Command(async () => await ExecuteEditarContatoCommand());
+            DeletarContatoCommand = new Command(async () => await ExecuteDeletarContatoCommand());
         }
         
         public string NomeContato
@@ -72,6 +74,26 @@ namespace MeusContatos.ViewModels
             }
 
             await PushAsync(new ListaDeContatosView());
+        }
+
+        private async Task ExecuteDeletarContatoCommand()
+        {
+            bool contatoAceito = await App.Current.MainPage.DisplayAlert("Excluir Contato", "Deseja excluir Contato?", "Sim", "Não");
+
+            if (contatoAceito)
+            {
+                try
+                {
+                    _contatoRepositorio.DeletarContato(_dadosContato.IdContato);
+                    await Application.Current.MainPage.DisplayAlert("", "Contato excluido com sucesso.", "Ok");
+                }
+                catch (Exception Erro)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Excluir Contato", "Erro ao excluir Contato" + Erro, "Ok");
+                }
+            }
+
+            await PushAsync(new ListaDeContatosView());            
         }
     }
 }
