@@ -17,7 +17,7 @@
             <Button Text="Editar Contato" 
                     TextColor="White"
                     BackgroundColor="#1E90FF" 
-                    Command="{Binding AdicionarContatoCommand}"/>
+                    Command="{Binding EditarContatoCommand}"/>
 
             <Button Text="Deletar Contato" 
                     TextColor="White"

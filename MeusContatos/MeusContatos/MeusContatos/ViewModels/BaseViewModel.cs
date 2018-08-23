@@ -21,7 +21,7 @@ namespace MeusContatos.ViewModels
                 return;
 
             storage = value;
-            OnPropertyChanged(propertyName);            
+            OnPropertyChanged(propertyName);
         }
 
         //Método de navegação entre páginas.
