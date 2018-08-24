@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MeusContatos.Views"
+             x:Class="MeusContatos.Views.AdicionarContatoView"
+             Title="Adicionar Contato">
+    <ContentPage.Content>
+        <StackLayout>
+            <local:CadastroContatoView />
+            
+            <Button Text="Adicionar Contato" 
+                    TextColor="White"
+                    BackgroundColor="#1E90FF" 
+                    Command="{Binding AdicionarContatoCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

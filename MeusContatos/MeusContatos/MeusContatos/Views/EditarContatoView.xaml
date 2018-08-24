@@ -1,18 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MeusContatos.Views"
              x:Class="MeusContatos.Views.EditarContatoView"
              Title="Editar/Deletar Contatos">
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Entry Text="{Binding NomeContato}"                   
-                   Placeholder="Nome" />
-
-            <Entry Text="{Binding Celular}"
-                   Placeholder="Celular" />
-
-            <Entry Text="{Binding TelefoneFixo}"
-                   Placeholder="Telefone" />
+            <local:CadastroContatoView />
 
             <Button Text="Editar Contato" 
                     TextColor="White"

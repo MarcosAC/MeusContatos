@@ -11,7 +11,7 @@ namespace MeusContatos.ViewModels
     {
         private readonly IContatoRepositorio _contatoRepositorio;
         
-        public Command IrParaCadastroContatoCommand { get; }
+        public Command IrParaAdicionarContatoCommand { get; }
         public Command SelecionarContatoCommand { get; }
         
         public List<Contato> listaDeContatos { get; }
@@ -22,7 +22,7 @@ namespace MeusContatos.ViewModels
             
             listaDeContatos = ListaDeContatos();
 
-            IrParaCadastroContatoCommand = new Command(ExecuteIrParaCadastroContatoCommand);
+            IrParaAdicionarContatoCommand = new Command(ExecuteIrParaAdicionarContatoCommand);
             SelecionarContatoCommand = new Command<Contato>(async c => await ExecuteSelecionarContatoCommand(c));
         }
 
@@ -41,9 +41,9 @@ namespace MeusContatos.ViewModels
             return _contatoRepositorio.ObterTodosContatos();
         }
 
-        private async void ExecuteIrParaCadastroContatoCommand()
+        private async void ExecuteIrParaAdicionarContatoCommand()
         {
-            await PushAsync(new CadastroContatoView());
+            await PushAsync(new AdicionarContatoView());
         }
 
         private async Task ExecuteSelecionarContatoCommand(Contato contaSelecionado)

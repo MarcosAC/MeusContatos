@@ -49,7 +49,7 @@
                     BorderRadius="100"
                     HeightRequest="60"
                     WidthRequest="60"
-                    Command="{Binding IrParaCadastroContatoCommand}"
+                    Command="{Binding IrParaAdicionarContatoCommand}"
                     RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1, Constant=-80}"
                     RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=1, Constant=-80}" />
 

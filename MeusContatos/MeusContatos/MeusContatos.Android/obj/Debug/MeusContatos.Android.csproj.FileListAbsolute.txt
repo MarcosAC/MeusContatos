@@ -1,10 +1,10 @@
-C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\MeusContatos.Android.csprojAssemblyReference.cache
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\bin\Debug\MeusContatos.Android.dll
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\bin\Debug\MeusContatos.Android.pdb
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\bin\Debug\com.companyname.apk
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\bin\Debug\com.companyname-Signed.apk
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\bin\Debug\MeusContatos.dll
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\bin\Debug\MeusContatos.pdb
+C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\MeusContatos.Android.csprojAssemblyReference.cache
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\MeusContatos.Android.csproj.CoreCompileInputs.cache
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\XamlC.stamp
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\MeusContatos.Android.csproj.CopyComplete
