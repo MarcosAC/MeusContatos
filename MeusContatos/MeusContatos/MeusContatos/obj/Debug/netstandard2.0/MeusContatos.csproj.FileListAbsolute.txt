@@ -1,7 +1,6 @@
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos\bin\Debug\netstandard2.0\MeusContatos.deps.json
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos\bin\Debug\netstandard2.0\MeusContatos.dll
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos\bin\Debug\netstandard2.0\MeusContatos.pdb
-C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos\obj\Debug\netstandard2.0\MeusContatos.csprojAssemblyReference.cache
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos\obj\Debug\netstandard2.0\Views\AdicionarContatoView.xaml.g.cs
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos\obj\Debug\netstandard2.0\Views\CadastroContatoView.xaml.g.cs

@@ -11,12 +11,15 @@ namespace MeusContatos.ViewModels
     public class AdicionarContatoViewModel : BaseViewModel
     {
         private readonly IContatoRepositorio _contatoRepositorio;
+        private readonly IPaginaServico _paginaServico;
 
         public Command AdicionarContatoCommand { get; }
 
         public AdicionarContatoViewModel()
         {
             _contatoRepositorio = new ContatoRepositorio();
+
+            _paginaServico = new PaginaServico();
             
             AdicionarContatoCommand = new Command(async () => await ExecuteAdicionarContatoCommand());
         }
@@ -72,18 +75,18 @@ namespace MeusContatos.ViewModels
                     TelefoneFixo = TelefoneFixo
                 };
 
-                bool contatoAceito = await Application.Current.MainPage.DisplayAlert("Adicionar Contato", "Deseja adicionar Contato?", "Sim", "Não");
+                bool contatoAceito = await _paginaServico.DisplayAlert("Adicionar Contato", "Deseja adicionar Contato?", "Sim", "Não");
 
                 if (contatoAceito)
                 {
                     try
                     {
-                        _contatoRepositorio.AdicionarContato(contato);                        
-                        await Application.Current.MainPage.DisplayAlert("", "Contato adicionado com sucesso.", "Ok");                        
+                        _contatoRepositorio.AdicionarContato(contato);
+                        await _paginaServico.DisplayAlert("", "Contato adicionado com sucesso.", "Ok");                        
                     }
                     catch (Exception Erro)
                     {
-                        await Application.Current.MainPage.DisplayAlert("Adicionar Contato", "Erro ao adicionar Contato" + Erro, "Sim", "Não");
+                        await _paginaServico.DisplayAlert("Adicionar Contato", "Erro ao adicionar Contato" + Erro, "Ok");
                     }
 
                     await PushAsync(new ListaDeContatosView());
@@ -91,7 +94,7 @@ namespace MeusContatos.ViewModels
             }
             catch (Exception Erro)
             {
-                await Application.Current.MainPage.DisplayAlert("Adicionar Contato", "Erro ao adicionar Contato" + Erro, "Sim", "Não");
+                await _paginaServico.DisplayAlert("Adicionar Contato", "Erro ao adicionar Contato" + Erro, "Ok");
                 await PushAsync(new ListaDeContatosView());
             }
         }

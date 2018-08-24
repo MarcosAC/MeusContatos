@@ -10,6 +10,7 @@ namespace MeusContatos.ViewModels
     public class EditarContatoViewModel : BaseViewModel
     {
         private readonly IContatoRepositorio _contatoRepositorio;
+        private readonly IPaginaServico _paginaServico;
 
         public Contato _dadosContato;
 
@@ -19,6 +20,8 @@ namespace MeusContatos.ViewModels
         public EditarContatoViewModel(Contato contatoSelecionado)
         {
             _contatoRepositorio = new ContatoRepositorio();
+
+            _paginaServico = new PaginaServico();
 
             _dadosContato = contatoSelecionado;
 
@@ -58,18 +61,18 @@ namespace MeusContatos.ViewModels
 
         private async Task ExecuteEditarContatoCommand()
         {
-            bool contatoAceito = await App.Current.MainPage.DisplayAlert("Editar Contato", "Deseja editar Contato?", "Sim", "Não");
+            bool contatoAceito = await _paginaServico.DisplayAlert("Editar Contato", "Deseja editar Contato?", "Sim", "Não");
 
             if (contatoAceito)
             {
                 try
                 {
                     _contatoRepositorio.EditarContato(_dadosContato);
-                    await Application.Current.MainPage.DisplayAlert("", "Contato editado com sucesso.", "Ok");
+                    await _paginaServico.DisplayAlert("", "Contato editado com sucesso.", "Ok");
                 }
                 catch (Exception Erro)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Editar Contato", "Erro ao editar Contato" + Erro, "Ok");
+                    await _paginaServico.DisplayAlert("Editar Contato", "Erro ao editar Contato" + Erro, "Ok");
                 }
             }
 
@@ -78,18 +81,18 @@ namespace MeusContatos.ViewModels
 
         private async Task ExecuteDeletarContatoCommand()
         {
-            bool contatoAceito = await App.Current.MainPage.DisplayAlert("Excluir Contato", "Deseja excluir Contato?", "Sim", "Não");
+            bool contatoAceito = await _paginaServico.DisplayAlert("Excluir Contato", "Deseja excluir Contato?", "Sim", "Não");
 
             if (contatoAceito)
             {
                 try
                 {
                     _contatoRepositorio.DeletarContato(_dadosContato.IdContato);
-                    await Application.Current.MainPage.DisplayAlert("", "Contato excluido com sucesso.", "Ok");
+                    await _paginaServico.DisplayAlert("", "Contato excluido com sucesso.", "Ok");
                 }
                 catch (Exception Erro)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Excluir Contato", "Erro ao excluir Contato" + Erro, "Ok");
+                    await _paginaServico.DisplayAlert("Excluir Contato", "Erro ao excluir Contato" + Erro, "Ok");
                 }
             }
 
