@@ -7,6 +7,8 @@ namespace MeusContatos.BD.Repositorio
     {
         List<Contato> ObterTodosContatos();
 
+        List<Contato> PesquisarContato(string filtro);
+
         Contato ObterContato(int contatoId);
 
         void AdicionarContato(Contato contato);

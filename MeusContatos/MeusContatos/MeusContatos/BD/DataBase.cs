@@ -31,12 +31,17 @@ namespace MeusContatos.BD
 
         public Contato ObterContato(int id)
         {
-            return _conexao.Table<Contato>().FirstOrDefault(c => c.IdContato == id);
+            return _conexao.Table<Contato>().FirstOrDefault(c => c.IdContato == id);            
         }
 
         public List<Contato> ObterTodosContatos()
         {
             return (from dadosContato in _conexao.Table<Contato>() select dadosContato).ToList();
+        }
+
+        public List<Contato> PesquisarContato(string filtro)
+        {
+            return _conexao.Table<Contato>().Where(c => c.NomeContato.Contains(filtro)).ToList();
         }
 
         public void EditarContato(Contato contato)

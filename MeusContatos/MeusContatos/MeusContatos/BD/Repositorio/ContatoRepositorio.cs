@@ -41,5 +41,10 @@ namespace MeusContatos.BD.Repositorio
         {
             return _dataBase.ObterTodosContatos();
         }
+
+        public List<Contato> PesquisarContato(string filtro)
+        {
+            return _dataBase.PesquisarContato(filtro);
+        }
     }
 }
