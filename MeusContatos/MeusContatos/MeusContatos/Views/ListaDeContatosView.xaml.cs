@@ -14,6 +14,12 @@ namespace MeusContatos.Views
             ViewModel = new ListaDeContatosViewModel();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BindingContext = new ListaDeContatosViewModel();
+        }
+
         public ListaDeContatosViewModel ViewModel
         {
             get { return BindingContext as ListaDeContatosViewModel; }
