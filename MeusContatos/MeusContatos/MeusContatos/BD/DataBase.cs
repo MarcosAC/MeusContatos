@@ -41,7 +41,7 @@ namespace MeusContatos.BD
 
         public List<Contato> PesquisarContato(string filtro)
         {
-            return _conexao.Table<Contato>().Where(c => c.NomeContato.Contains(filtro)).ToList();
+            return _conexao.Table<Contato>().Where(c => c.NomeContato.ToLower().Contains(filtro)).ToList();
         }
 
         public void EditarContato(Contato contato)

@@ -4,12 +4,14 @@
              x:Class="MeusContatos.Views.CadastroContatoView">
     <StackLayout Padding="10">
         <Entry Text="{Binding NomeContato}" 
-                   Placeholder="Nome" />
+               Placeholder="Nome" />
 
         <Entry Text="{Binding Celular}"
-                   Placeholder="Celular" />
+               Placeholder="Celular" 
+               Keyboard="Telephone" />
 
         <Entry Text="{Binding TelefoneFixo}"
-                   Placeholder="Telefone" />
+               Placeholder="Telefone" 
+               Keyboard="Telephone" />
     </StackLayout>
 </ContentView>
