@@ -11,7 +11,8 @@ namespace MeusContatos.ViewModels
     public class ListaDeContatosViewModel : BaseViewModel
     {
         private readonly IContatoRepositorio _contatoRepositorio;
-        
+        private readonly IPaginaServico _paginaServico;
+
         public Command IrParaAdicionarContatoCommand { get; }
         public Command SelecionarContatoCommand { get; }
         
@@ -20,6 +21,8 @@ namespace MeusContatos.ViewModels
         public ListaDeContatosViewModel()
         {
             _contatoRepositorio = new ContatoRepositorio();
+
+            _paginaServico = new PaginaServico();
 
             listaDeContatos = new ObservableCollection<Contato>(ListaDeContatos());
 
@@ -57,7 +60,7 @@ namespace MeusContatos.ViewModels
 
         private async void ExecuteIrParaAdicionarContatoCommand()
         {
-            await PushAsync(new AdicionarContatoView());
+            await _paginaServico.PushModalAsync(new NavigationPage(new AdicionarContatoView()));
         }
 
         private async Task ExecuteSelecionarContatoCommand(Contato contaSelecionado)
@@ -65,7 +68,7 @@ namespace MeusContatos.ViewModels
             if (contaSelecionado == null)
                 return;
 
-            await PushAsync(new EditarContatoView(contaSelecionado));
+            await _paginaServico.PushModalAsync(new NavigationPage(new EditarContatoView(contaSelecionado)));
         }
     }
 }

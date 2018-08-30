@@ -82,20 +82,20 @@ namespace MeusContatos.ViewModels
                     try
                     {
                         _contatoRepositorio.AdicionarContato(contato);
-                        await _paginaServico.DisplayAlert("", "Contato adicionado com sucesso.", "Ok");                        
+                        await _paginaServico.DisplayAlert("", "Contato adicionado com sucesso.", "Ok");
                     }
                     catch (Exception Erro)
                     {
                         await _paginaServico.DisplayAlert("Adicionar Contato", "Erro ao adicionar Contato" + Erro, "Ok");
                     }
 
-                    await PushAsync(new ListaDeContatosView());
+                    await _paginaServico.PopModalAsync();
                 }
             }
             catch (Exception Erro)
             {
                 await _paginaServico.DisplayAlert("Adicionar Contato", "Erro ao adicionar Contato" + Erro, "Ok");
-                await PushAsync(new ListaDeContatosView());
+                await _paginaServico.PushAsync(new ListaDeContatosView());
             }
         }
     }

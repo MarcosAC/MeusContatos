@@ -102,6 +102,7 @@ C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debu
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\android\assets\Xamarin.Forms.Core.pdb
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.pdb
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\bin\Debug\MeusContatos.Android.dll
+C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\linksrc\MeusContatos.pdb
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\linksrc\MeusContatos.Android.dll.mdb
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Projetos\MeusContatos\MeusContatos\MeusContatos\MeusContatos.Android\obj\Debug\linksrc\Xamarin.Forms.Platform.Android.dll.mdb

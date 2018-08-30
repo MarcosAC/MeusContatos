@@ -1,6 +1,5 @@
 ﻿using MeusContatos.BD.Repositorio;
 using MeusContatos.Models;
-using MeusContatos.Views;
 using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -76,7 +75,7 @@ namespace MeusContatos.ViewModels
                 }
             }
 
-            await PushAsync(new ListaDeContatosView());
+            await _paginaServico.PopModalAsync();
         }
 
         private async Task ExecuteDeletarContatoCommand()
@@ -96,7 +95,7 @@ namespace MeusContatos.ViewModels
                 }
             }
 
-            await PushAsync(new ListaDeContatosView());            
+            await _paginaServico.PopModalAsync();
         }
     }
 }

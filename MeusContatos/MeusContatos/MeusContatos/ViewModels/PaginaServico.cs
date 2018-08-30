@@ -15,9 +15,19 @@ namespace MeusContatos.ViewModels
             await Application.Current.MainPage.DisplayAlert(title, message, cancel);
         }
 
+        public async Task PushModalAsync(Page page)
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(page);
+        }
+
         public async Task PushAsync(Page page)
         {
             await App.Current.MainPage.Navigation.PushAsync(page);
+        }
+
+        public async Task PopModalAsync()
+        {
+            await App.Current.MainPage.Navigation.PopModalAsync();
         }
     }
 }
