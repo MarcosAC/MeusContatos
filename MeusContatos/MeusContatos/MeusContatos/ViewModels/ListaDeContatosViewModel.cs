@@ -37,25 +37,25 @@ namespace MeusContatos.ViewModels
             set
             {                
                 SetProperty(ref _filtro, value);
-                PesquisarContatos(_filtro);
+                ListaDeContatos(_filtro);
             }
         }
 
-        private List<Contato> ListaDeContatos()
-        {   
-            return _contatoRepositorio.ObterTodosContatos();
-        }
-
-        public void PesquisarContatos(string filtro)
+        private List<Contato> ListaDeContatos(string filtro = null)
         {
-            var contatos = _contatoRepositorio.PesquisarContato(filtro);
-
-            listaDeContatos.Clear();
-
-            foreach (var contato in contatos)
+            if (filtro != null)
             {
-                listaDeContatos.Add(contato);
-            }                       
+                var contatos = _contatoRepositorio.PesquisarContato(filtro);
+
+                listaDeContatos.Clear();
+
+                foreach (var contato in contatos)
+                {
+                    listaDeContatos.Add(contato);
+                }
+            }
+
+            return _contatoRepositorio.ObterTodosContatos();
         }
 
         private async void ExecuteIrParaAdicionarContatoCommand()

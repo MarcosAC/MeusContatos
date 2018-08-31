@@ -5,7 +5,7 @@
              x:Class="MeusContatos.Views.AdicionarContatoView"
              Title="Adicionar Contato">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="10">
             <local:CadastroContatoView />
 
             <Button Text="Adicionar Contato" 

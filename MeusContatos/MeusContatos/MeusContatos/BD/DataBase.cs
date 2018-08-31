@@ -36,12 +36,21 @@ namespace MeusContatos.BD
 
         public List<Contato> ObterTodosContatos()
         {
-            return (from dadosContato in _conexao.Table<Contato>() select dadosContato).ToList();
+            //return (from dadosContato in _conexao.Table<Contato>().OrderBy(c => c.NomeContato) select dadosContato).ToList();
+            return _conexao.Table<Contato>().OrderBy(c => c.NomeContato).ToList();            
         }
 
         public List<Contato> PesquisarContato(string filtro)
         {
-            return _conexao.Table<Contato>().Where(c => c.NomeContato.ToLower().Contains(filtro)).ToList();
+            /*
+             * Verifica se o paramentro esta vazio ou nulo,
+             * para quando o usuario apagar os parametros de pesquisa no serachbar
+             * a lista carregar os contatos em ordem alfabetica.
+             */
+            if (string.IsNullOrEmpty(filtro))
+                return ObterTodosContatos(); //-> O método ObterTodosContatos retorna a lista em ordem alfabética.
+
+            return _conexao.Table<Contato>().Where(c => c.NomeContato.Contains(filtro)).ToList();
         }
 
         public void EditarContato(Contato contato)

@@ -5,7 +5,7 @@
              x:Class="MeusContatos.Views.EditarContatoView"
              Title="Editar/Deletar Contatos">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout Padding="10">
             <local:CadastroContatoView />
 
             <Button Text="Editar Contato" 
